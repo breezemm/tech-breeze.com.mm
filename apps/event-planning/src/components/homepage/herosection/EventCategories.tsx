@@ -18,7 +18,7 @@ type ResponseModel = {
 };
 
 const getData = async () => {
-  return await httpClient.get<ResponseModel>(`interests`);
+  return await httpClient.get<ResponseModel>(`setup/interests`);
 };
 
 const EventCategories = async () => {
