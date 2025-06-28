@@ -40,9 +40,15 @@ const cardItems = [
 
 export default function ProjectSection() {
   return (
-    <div className="flex w-full flex-col">
+    <div id="projects" className="flex w-full flex-col">
       {cardItems.map((cards) => (
-        <ProjectCard title={cards.title} description={cards.description} leftImage={cards.leftImage} rightImage={cards.rightImage} />
+        <ProjectCard
+          key={cards.title}
+          title={cards.title}
+          description={cards.description}
+          leftImage={cards.leftImage}
+          rightImage={cards.rightImage}
+        />
       ))}
     </div>
   )

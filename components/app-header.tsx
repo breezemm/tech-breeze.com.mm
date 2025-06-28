@@ -4,10 +4,10 @@ import { Facebook, Linkedin, Mail, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 const navItems = [
-  { title: 'Home', href: '#home' },
-  { title: 'About', href: '#about' },
-  { title: 'Projects', href: '#projects' },
-  { title: 'Contact', href: '#contact' },
+  { title: 'Home', href: '/#home' },
+  { title: 'About', href: '/#about' },
+  { title: 'Projects', href: '/#projects' },
+  { title: 'Contact', href: '/#contact' },
 ]
 
 const links = [
