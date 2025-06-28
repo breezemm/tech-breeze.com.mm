@@ -5,7 +5,7 @@ import Navbar from './navbar'
 const navItems: NavItemType[] = [
   { title: 'Home', href: '' },
   { title: 'About', href: '' },
-  { title: 'Projects', href: '' },
+  { title: 'Projects', href: '/project-section' },
   { title: 'Contact', href: '' },
 ]
 

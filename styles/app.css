@@ -129,3 +129,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .text-xss {
+    font-size: 0.625rem;
+    line-height: calc(0.75 / 0.625);
+  }
+}
