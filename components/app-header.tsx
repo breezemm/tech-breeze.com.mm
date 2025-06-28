@@ -21,7 +21,7 @@ export default function AppHeader() {
 
   return (
     <>
-      <header className="relative flex items-center justify-between px-[22px] py-[11px] md:px-[15px] md:py-[30px] lg:px-24">
+      <header className="fixed flex w-full items-center justify-between bg-white px-[22px] py-[11px] md:px-[15px] md:py-[30px] lg:px-24">
         {!isNavOpen && <h2 className="text-[25px]">Tech Breeze</h2>}
         <AppNavbar className="hidden md:flex" navItems={navItems} />
         <div className="hidden items-center space-x-8 md:flex">
@@ -34,8 +34,8 @@ export default function AppHeader() {
         {!isNavOpen && <Menu onClick={() => setIsNavOpen(true)} className="block md:hidden" />}
         {isNavOpen && (
           <>
-            <div className="bg-eerie-black/40 absolute top-0 right-0 bottom-0 left-0 h-screen w-[100vh] md:hidden" />
-            <div className="absolute top-0 left-0 z-20 flex w-full flex-col bg-white md:hidden">
+            <div onClick={() => setIsNavOpen(false)} className="bg-eerie-black/40 fixed top-0 right-0 bottom-0 left-0 h-screen w-[100vh] md:hidden" />
+            <div onClick={() => setIsNavOpen(false)} className="fixed top-0 left-0 z-20 flex w-full flex-col bg-white md:hidden">
               <X onClick={() => setIsNavOpen(false)} className="absolute top-0 right-0 mx-4 my-4" />
               <AppNavbar className="flex flex-col gap-[10px] px-8 py-[4rem] md:hidden" navItems={navItems} />
               <div className="mb-10 flex items-center gap-4 px-8">
