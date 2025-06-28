@@ -1,11 +1,10 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@import './fonts.css';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-neue-june: 'Neue June', sans-serif;
+  --font-sans: 'Neue June', sans-serif;
   --color-eerie-black: oklch(0.2621 0.0095 248.19);
   --color-seasalt: oklch(0.9816 0.0017 247.84);
   --shadow-custom-1: filter: drop-shadow(25px 0px 54px #cbcbcd30);
@@ -127,5 +126,12 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-xss {
+    font-size: 0.625rem;
+    line-height: calc(0.75 / 0.625);
   }
 }

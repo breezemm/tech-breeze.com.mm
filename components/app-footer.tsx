@@ -13,7 +13,8 @@ const breezeInfo = [
   { label: 'Website', href: 'www.tech-breeze.com.mm' },
   { label: 'Phone number', href: '09 980 40 96 20' },
 ]
-export default function Footer() {
+
+export default function AppFooter() {
   return (
     <footer className="bg-seasalt flex gap-42 py-12 pl-5 text-[10px] md:pl-6 md:text-xl">
       <div className="flex w-full flex-col items-center justify-center gap-6 lg:w-1/2">

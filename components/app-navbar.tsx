@@ -4,9 +4,8 @@ import { cn } from '@/lib/utils'
 import { NavItemType } from '@/types'
 import { usePathname } from 'next/navigation'
 
-export default function Navbar({ navItems = [], className }: { navItems: NavItemType[]; className?: string }) {
+export default function AppNavbar({ navItems = [], className }: { navItems: NavItemType[]; className?: string }) {
   const pathname = usePathname().split('/')[1]
-  console.log(pathname)
 
   return (
     <nav>
