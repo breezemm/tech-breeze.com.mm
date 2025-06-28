@@ -7,18 +7,30 @@ const developers = [
   { name: 'Ko Zawe Yan Naing (Full-stack Developer)', socialLink: '' },
   { name: 'Ko Zwe Mhan Shin (Product Designer)', socialLink: '' },
 ]
+
+const breezeInfo = [
+  { label: 'Mail', href: 'hello@tech-breeze.com.mm' },
+  { label: 'Website', href: 'www.tech-breeze.com.mm' },
+  { label: 'Phone number', href: '09 980 40 96 20' },
+]
 export default function Footer() {
   return (
-    <footer className="bg-seasalt flex gap-42 py-12 pl-34 text-xl">
-      <div className="flex w-1/2 flex-col gap-6">
-        <h3>Address</h3>
+    <footer className="bg-seasalt flex gap-42 py-12 pl-5 text-[10px] md:pl-6 md:text-xl">
+      <div className="flex w-full flex-col items-center justify-center gap-6 lg:w-1/2">
+        <h3 className="ml-[-7rem] font-semibold md:ml-[-15rem]">Address</h3>
         <div className="flex flex-col">
           <p>Tech Breeze</p>
-          <p>Based in Myanmar (Remote-First) Mail: hello@tech-breeze.com.mm Website: www.tech-breeze.com.mm Phone number: 09 980 40 96 20</p>
+          <p>Based in Myanmar (Remote-First)</p>
+          {breezeInfo.map(({ label, href }) => (
+            <p key={label}>
+              <span>{label}: </span>
+              <a href={href}>{href}</a>
+            </p>
+          ))}
         </div>
       </div>
 
-      <div className="flex w-3/4 flex-col gap-6">
+      <div className="hidden w-3/4 flex-col gap-6 lg:flex">
         <h3>A big thank to our awesome Breezers for crafting website to life!</h3>
         <div className="flex flex-col">
           {developers.map(({ name, socialLink }) => (
