@@ -1,6 +1,8 @@
+import Footer from '@/components/footer'
 import Header from '@/components/header'
 import type { Metadata } from 'next'
 import '../styles/app.css'
+import '../styles/fonts.css'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,9 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
+      <body className={`font-neue-june antialiased`}>
         <Header />
-        {children}
+
+        <main className="flex flex-col gap-10">{children}</main>
+        <Footer />
       </body>
     </html>
   )
