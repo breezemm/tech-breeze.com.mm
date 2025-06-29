@@ -1,5 +1,4 @@
 'use client'
-
 import { cn } from '@/lib/utils'
 import { NavItemType } from '@/types'
 import Link from 'next/link'
