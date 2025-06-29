@@ -36,7 +36,7 @@ export default function ContactSection() {
 
   return (
     <>
-      <div id="container" className="bg-seasalt flex min-h-[400px] flex-col items-center justify-center">
+      <div id="contact" className="bg-seasalt flex min-h-[400px] flex-col items-center justify-center">
         <h1 className="font-neue-june mb-2 text-[1.25rem]">Contact Us</h1>
         <div className="text-start">
           <h2 className="font-neue-june mb-[1.5rem] text-[1.875rem] font-bold">Let&apos;s craft together!</h2>
