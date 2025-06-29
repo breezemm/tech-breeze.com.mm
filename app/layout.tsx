@@ -16,9 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-neue-june antialiased select-none">
+      <body className="text-eerie-black font-sans antialiased select-none">
         <AppHeader />
-        <main className="flex flex-col gap-10">{children}</main>
+        <main className="flex flex-col gap-5 sm:gap-10">{children}</main>
         <AppFooter />
       </body>
     </html>

@@ -1,11 +1,10 @@
 'use client'
 
-import { Form } from '@/components/form'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
 export default function ContactSection() {
-  const handleSubmit = async (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     const formData = new FormData(e.target as HTMLFormElement)
     try {
@@ -35,39 +34,22 @@ export default function ContactSection() {
   }
 
   return (
-    <>
-      <div id="contact" className="bg-seasalt flex min-h-[400px] flex-col items-center justify-center">
-        <h1 className="font-neue-june mb-2 text-[1.25rem]">Contact Us</h1>
+    <section id="contact" className="bg-seasalt mb-5 justify-center px-19.5 py-7.5">
+      <div className="mx-auto w-full max-w-sm">
+        <h1 className="text-xss mb-2 text-center">Contact us</h1>
         <div className="text-start">
-          <h2 className="font-neue-june mb-[1.5rem] text-[1.875rem] font-bold">Let&apos;s craft together!</h2>
-          <Form className="w-full max-w-md space-y-2" onSubmit={handleSubmit} style={{ pointerEvents: 'auto' }}>
-            <Input
-              type="email"
-              name="email"
-              placeholder="Enter your Email"
-              required
-              style={{ pointerEvents: 'auto', zIndex: 100 }}
-              className="relative z-10"
-            />
-            <Input
-              type="tel"
-              name="phone"
-              placeholder="Enter your Phone Number"
-              required
-              style={{ pointerEvents: 'auto', zIndex: 100 }}
-              className="relative z-10"
-            />
-            <Button
-              type="submit"
-              className="bg-eerie-black relative z-10 w-full text-white hover:opacity-90"
-              size="lg"
-              style={{ pointerEvents: 'auto', zIndex: 100 }}
-            >
-              Send Message
+          <h2 className="mb-1.25 text-sm font-medium md:mb-2">Let's craft together!</h2>
+
+          <form onSubmit={submit} className="text-seasalt flex flex-col space-y-1.25 md:space-y-2">
+            <Input type="email" name="email" placeholder="Enter your email" required className="text-xss h-7.5" />
+            <Input type="tel" name="phone" placeholder="Enter your phone number" required className="text-xss h-7.5" />
+
+            <Button type="submit" className="bg-eerie-black text-xss w-full">
+              Sent
             </Button>
-          </Form>
+          </form>
         </div>
       </div>
-    </>
+    </section>
   )
 }

@@ -9,7 +9,7 @@ export default function AppNavbar({ navItems = [], className }: { navItems: NavI
 
   return (
     <nav>
-      <ul className={cn('hidden space-x-8 md:flex', className)}>
+      <ul className={cn('hidden space-x-8 lg:flex', className)}>
         {navItems.map((navItem: NavItemType) => {
           return (
             <li key={navItem.title}>

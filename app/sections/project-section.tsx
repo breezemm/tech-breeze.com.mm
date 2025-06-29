@@ -1,4 +1,4 @@
-import ProjectCard from '@/components/project-card'
+import ProjectCard from '@/components/cards/project-card'
 
 const cardItems = [
   {
@@ -40,7 +40,7 @@ const cardItems = [
 
 export default function ProjectSection() {
   return (
-    <div id="projects" className="flex w-full flex-col">
+    <div id="projects" className="flex w-full flex-col space-y-5">
       {cardItems.map((cards) => (
         <ProjectCard
           key={cards.title}

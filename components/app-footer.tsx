@@ -16,7 +16,7 @@ const breezeInfo = [
 
 export default function AppFooter() {
   return (
-    <footer className="bg-seasalt text-xss text-eerie-black flex flex-col justify-between space-y-5 px-11.25 pt-2.5 pb-13.5 transition-all sm:flex-row sm:px-23.5 sm:py-12">
+    <footer className="bg-seasalt text-xss text-eerie-black flex flex-col justify-between space-y-5 px-11.25 pt-2.5 pb-13.5 transition-all sm:py-12 md:px-10 lg:flex-row lg:px-23.5">
       <div>
         <h3 className="mb-2.5 font-semibold sm:mb-6">Address</h3>
         <div>
@@ -34,7 +34,7 @@ export default function AppFooter() {
       </div>
 
       <div className="text-xss flex flex-col space-y-2.5">
-        <h3 className="text-nowrap">A big thank to our awesome Breezers for crafting website to life!</h3>
+        <h3 className="md:text-nowrap">A big thank to our awesome Breezers for crafting website to life!</h3>
         <div className="flex flex-col space-y-1.5">
           {developers.map(({ name, socialLink }) => (
             <a target="_blank" rel="noopener noreferrer" className="underline-off-set-8 underline" href={socialLink} key={name}>
