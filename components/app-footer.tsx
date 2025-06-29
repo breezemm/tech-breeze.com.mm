@@ -1,11 +1,11 @@
 const developers = [
-  { name: 'Ma Aye Saint Thu (Full-stack Developer)', socialLink: '' },
-  { name: 'Ko Khant Nyar Thwin(Full-stack Developer)', socialLink: '' },
+  { name: 'Ma Aye Saint Thu (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/aye-seint-thu-seint-6b7579370/' },
+  { name: 'Ko Khant Nyar Thwin (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/khant-nyar-thwin-3451a1372/' },
   { name: 'Ko La Pyae Hume Aung (Frontend Developer)', socialLink: 'https://www.linkedin.com/in/lapyaehmueaung/' },
-  { name: 'Ma Paing Hus Wai Kyaw (Product Manager)', socialLink: '' },
-  { name: 'Ko Pyae Phyo Hlaing (Full-stack Developer)', socialLink: '' },
-  { name: 'Ko Zawe Yan Naing (Full-stack Developer)', socialLink: '' },
-  { name: 'Ko Zwe Mhan Shin (Product Designer)', socialLink: '' },
+  { name: 'Ma Paing Hus Wai Kyaw (Product Manager)', socialLink: 'https://www.linkedin.com/in/paing-hsu-wai-kyaw-08041b372/' },
+  { name: 'Ko Pyae Phyo Hlaing (Full-stack Developer)', socialLink: 'https://github.com/pyaephyo11979' },
+  { name: 'Ko Zawe Yan Naing (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/zawe-yan-naing-a4b1a0285/' },
+  { name: 'Ko Zwe Mhan Shin (Product Designer)', socialLink: 'https://www.linkedin.com/in/zwe-thet-maung-ko-ko-199b0b29a/' },
 ]
 
 const breezeInfo = [
@@ -17,7 +17,7 @@ const breezeInfo = [
 export default function AppFooter() {
   return (
     <footer className="bg-seasalt mt-10 py-12">
-      <div className="flex justify-center lg:space-x-[118px]">
+      <div className="flex justify-center lg:space-x-30">
         {/* address */}
         <div>
           <h3 className="mb-6 font-semibold">Address</h3>

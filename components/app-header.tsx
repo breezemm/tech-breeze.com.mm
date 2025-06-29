@@ -21,8 +21,8 @@ export default function AppHeader() {
 
   return (
     <>
-      <header className="fixed flex w-full items-center justify-between bg-white px-[22px] py-[11px] md:px-[15px] md:py-[30px] lg:px-24">
-        <h2 className="text-[25px]">Tech Breeze</h2>
+      <header className="fixed flex w-full items-center justify-between bg-white px-5.5 py-3 md:px-5 md:py-8 lg:px-24">
+        <h2 className="text-2xl">Tech Breeze</h2>
         <AppNavbar className="hidden md:flex" navItems={navItems} />
         <div className="hidden items-center space-x-8 md:flex">
           {links.map((link) => (
@@ -40,7 +40,7 @@ export default function AppHeader() {
             />
             <div onClick={() => setIsNavOpen(false)} className="fixed top-0 left-0 z-50 flex w-full flex-col bg-white md:hidden">
               <X onClick={() => setIsNavOpen(false)} className="absolute top-0 right-0 mx-4 my-4" />
-              <AppNavbar className="flex flex-col gap-[10px] px-8 py-[4rem] md:hidden" navItems={navItems} />
+              <AppNavbar className="flex flex-col gap-2.5 px-8 py-17 md:hidden" navItems={navItems} />
               <div className="mb-10 flex items-center gap-4 px-8">
                 {links.map((link) => (
                   <a target="_blank" rel="noopener noreferrer" className="underline underline-offset-4" key={link.href} href={link.href}>
