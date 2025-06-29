@@ -1,15 +1,15 @@
 const developers = [
-  { name: 'Ma Aye Saint Thu(Full-stack Developer)', socialLink: '' },
-  { name: 'Ko Khant Nyar Thwin (Full-stack Developer)', socialLink: '' },
+  { name: 'Ma Aye Saint Thu (Full-stack Developer)', socialLink: '' },
+  { name: 'Ko Khant Nyar Thwin(Full-stack Developer)', socialLink: '' },
   { name: 'Ko La Pyae Hume Aung (Frontend Developer)', socialLink: 'https://www.linkedin.com/in/lapyaehmueaung/' },
-  { name: 'Ma Paing Hus Wai Kyaw(Product Manager)', socialLink: '' },
-  { name: 'Ko Pyae Phyo Hlaing(Full-stack Developer)', socialLink: '' },
+  { name: 'Ma Paing Hus Wai Kyaw (Product Manager)', socialLink: '' },
+  { name: 'Ko Pyae Phyo Hlaing (Full-stack Developer)', socialLink: '' },
   { name: 'Ko Zawe Yan Naing (Full-stack Developer)', socialLink: '' },
   { name: 'Ko Zwe Mhan Shin (Product Designer)', socialLink: '' },
 ]
 
 const breezeInfo = [
-  { label: 'Mail', href: 'mailto:hello@tech-breeze.com.mm', text: 'hello@tech-breeze.com.mm' },
+  { label: 'Mail', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=hello@tech-breeze.com.mm', text: 'hello@tech-breeze.com.mm' },
   { label: 'Website', href: 'https://www.tech-breeze.com.mm', text: 'www.tech-breeze.com.mm' },
   { label: 'Phone number', href: 'tel:+959980409620', text: '09 980 40 96 20' },
 ]

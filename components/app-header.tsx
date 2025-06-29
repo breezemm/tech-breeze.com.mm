@@ -13,7 +13,7 @@ const navItems = [
 const links = [
   { icon: Facebook, href: 'https://www.facebook.com/techbreezemm', label: 'Facebook' },
   { icon: Linkedin, href: 'https://www.linkedin.com/company/breezemm/posts/?feedView=all', label: 'LinkedIn' },
-  { icon: Mail, href: 'mailto:hello@tech-breeze.com.mm', label: 'Email' },
+  { icon: Mail, href: 'https://mail.google.com/mail/?view=cm&fs=1&to=hello@tech-breeze.com.mm', label: 'Email' },
 ]
 
 export default function AppHeader() {
