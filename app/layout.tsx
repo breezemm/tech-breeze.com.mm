@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import '../styles/app.css'
 import '../styles/fonts.css'
 
+
 export const metadata: Metadata = {
   title: 'Tech Breeze',
   // description: '',
