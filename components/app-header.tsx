@@ -11,8 +11,8 @@ const navItems = [
 ]
 
 const links = [
-  { icon: Facebook, href: 'https://www.facebook.com', label: 'Facebook' },
-  { icon: Linkedin, href: 'https://www.linkedin.com', label: 'LinkedIn' },
+  { icon: Facebook, href: 'https://www.facebook.com/techbreezemm', label: 'Facebook' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/breezemm/posts/?feedView=all', label: 'LinkedIn' },
   { icon: Mail, href: 'https://www.gmail.com', label: 'Email' },
 ]
 
