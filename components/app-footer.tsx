@@ -1,5 +1,5 @@
 const developers = [
-  { name: 'Ma Aye Saint Thu (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/aye-seint-thu-seint-6b7579370/' },
+  { name: 'Ma Aye Seint Thu (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/aye-seint-thu-seint-6b7579370/' },
   { name: 'Ko Khant Nyar Thwin (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/khant-nyar-thwin-3451a1372/' },
   { name: 'Ko La Pyae Hume Aung (Frontend Developer)', socialLink: 'https://www.linkedin.com/in/lapyaehmueaung/' },
   { name: 'Ma Paing Hus Wai Kyaw (Product Manager)', socialLink: 'https://www.linkedin.com/in/paing-hsu-wai-kyaw-08041b372/' },
@@ -16,38 +16,32 @@ const breezeInfo = [
 
 export default function AppFooter() {
   return (
-    <footer className="bg-seasalt mt-10 py-12">
-      <div className="flex justify-center lg:space-x-30">
-        {/* address */}
+    <footer className="bg-seasalt text-xss text-eerie-black flex flex-col justify-between space-y-5 px-11.25 pt-2.5 pb-13.5 transition-all sm:flex-row sm:px-23.5 sm:py-12">
+      <div>
+        <h3 className="mb-2.5 font-semibold sm:mb-6">Address</h3>
         <div>
-          <h3 className="mb-6 font-semibold">Address</h3>
-          <div>
-            <p>Tech Breeze</p>
-            <p>Based in Myanmar (Remote-First)</p>
-            {breezeInfo.map(({ label, href, text }) => (
-              <p key={label}>
-                <span>{label}: </span>
-                <a target="_blank" rel="noopener noreferrer" href={href}>
-                  {text}
-                </a>
-              </p>
-            ))}
-          </div>
+          <p>Tech Breeze</p>
+          <p>Based in Myanmar (Remote-First)</p>
+          {breezeInfo.map(({ label, href, text }) => (
+            <p key={label}>
+              <span>{label}: </span>
+              <a target="_blank" rel="noopener noreferrer" href={href}>
+                {text}
+              </a>
+            </p>
+          ))}
         </div>
+      </div>
 
-        {/* developers */}
-        <div>
-          <div className="hidden flex-col gap-6 lg:flex">
-            <h3>A big thank to our awesome Breezers for crafting website to life!</h3>
-            <div className="flex flex-col">
-              {developers.map(({ name, socialLink }) => (
-                <a target="_blank" rel="noopener noreferrer" className="underline-off-set-8 leading-9 underline" href={socialLink} key={name}>
-                  {name}
-                  <br />
-                </a>
-              ))}
-            </div>
-          </div>
+      <div className="text-xss flex flex-col space-y-2.5">
+        <h3 className="text-nowrap">A big thank to our awesome Breezers for crafting website to life!</h3>
+        <div className="flex flex-col space-y-1.5">
+          {developers.map(({ name, socialLink }) => (
+            <a target="_blank" rel="noopener noreferrer" className="underline-off-set-8 underline" href={socialLink} key={name}>
+              {name}
+              <br />
+            </a>
+          ))}
         </div>
       </div>
     </footer>

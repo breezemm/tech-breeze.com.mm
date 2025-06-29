@@ -1,6 +1,6 @@
 export default function HomeSection() {
   return (
-         <section className="flex flex-col items-center justify-center" id="home">
+    <section className="flex flex-col items-center justify-center" id="home">
       <div className="bg-seasalt sm:[17.625rem] mb-[2.5rem] flex h-[41.25rem] flex-col items-center justify-center">
         <div className="max-sm:flex max-sm:flex-row max-sm:pl-80">
           {' '}

@@ -17,7 +17,7 @@ export default function AppNavbar({ navItems = [], className }: { navItems: NavI
                 href={navItem.href}
                 onClick={() => setHash(navItem.href)}
                 scroll
-                className={cn('cursor-pointer', hash === navItem.href && 'underline underline-offset-8')}
+                className={cn('cursor-pointer text-xl', hash === navItem.href && 'border-eerie-black border-b-2')}
               >
                 {navItem.title}
               </Link>

@@ -139,4 +139,7 @@
     font-size: 0.625rem;
     line-height: calc(0.75 / 0.625);
   }
+  .stroke-1\.5 {
+    stroke-width: 1.5px;
+  }
 }

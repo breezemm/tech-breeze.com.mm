@@ -1,25 +1,19 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'
 
 interface FormProps extends React.ComponentProps<'form'> {
-  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
-  disabled?: boolean;
+  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void
+  disabled?: boolean
 }
 
-function Form({
-  className,
-  onSubmit,
-  disabled = false,
-  children,
-  ...props
-}: FormProps) {
+function Form({ className, onSubmit, disabled = false, children, ...props }: FormProps) {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    event.preventDefault()
     if (!disabled && onSubmit) {
-      onSubmit(event);
+      onSubmit(event)
     }
-  };
+  }
 
   return (
     <form
@@ -35,7 +29,7 @@ function Form({
     >
       {children}
     </form>
-  );
+  )
 }
 
-export { Form };
+export { Form }
