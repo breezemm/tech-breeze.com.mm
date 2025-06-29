@@ -2,6 +2,7 @@ import { NavItemType } from '@/types'
 import { Facebook, Linkedin, Mail } from 'lucide-react'
 import Navbar from './navbar'
 
+
 const navItems: NavItemType[] = [
   { title: 'Home', href: '' },
   { title: 'About', href: '' },
@@ -20,5 +21,7 @@ export default function Header() {
         <Mail />
       </div>
     </header>
+    
+    
   )
 }
