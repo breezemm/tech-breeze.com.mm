@@ -2,17 +2,22 @@
 import { cn } from '@/lib/utils'
 import { NavItemType } from '@/types'
 import Link from 'next/link'
-import { useState } from 'react'
 
-export default function AppNavbar({ navItems = [], className }: { navItems: NavItemType[]; className?: string }) {
-  const [hash, setHash] = useState('/#home')
+type AppNavbarType = {
+  hash: string
+  navItems: NavItemType[]
+  setHash: (hash: string) => void
+  className: string
+  onClick?: () => void
+}
 
+export default function AppNavbar({ hash, setHash, navItems, className, onClick }: AppNavbarType) {
   return (
     <nav>
       <ul className={cn('hidden space-x-8 lg:flex', className)}>
         {navItems.map((navItem: NavItemType) => {
           return (
-            <li key={navItem.title}>
+            <li key={navItem.title} onClick={onClick}>
               <Link
                 href={navItem.href}
                 onClick={() => setHash(navItem.href)}
