@@ -23,31 +23,30 @@ export default function AppHeader() {
   const [hash, setHash] = useState('/#home')
 
   useEffect(() => {
-    const observers: IntersectionObserver[] = []
+    function onScroll() {
+      let currentSection = '/#home'
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id)
-      if (!el) return
+      for (const id of sectionIds) {
+        const section = document.getElementById(id)
+        if (!section) continue
 
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setHash(`/#${id}`)
-          }
-        },
-        {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.6, // adjust to trigger earlier/later
-        },
-      )
+        const rect = section.getBoundingClientRect()
 
-      observer.observe(el)
-      observers.push(observer)
-    })
+        if (rect.top <= 100 && rect.bottom > 100) {
+          currentSection = `/#${id}`
+          break
+        }
+      }
+
+      setHash(currentSection)
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    onScroll()
 
     return () => {
-      observers.forEach((observer) => observer.disconnect())
+      window.removeEventListener('scroll', onScroll)
     }
   }, [])
 
