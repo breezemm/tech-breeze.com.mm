@@ -41,8 +41,8 @@ export default function ContactSection() {
           <h2 className="mb-1.25 text-sm  font-medium md:mb-2 lg:text-3xl lg:mx-8 ">Let&apos;s craft together!</h2>
 
           <form onSubmit={submit} className="text-seasalt flex flex-col items-center space-y-1.25 md:space-y-2 lg:space-y-4 ">
-            <Input type="email" name="email" placeholder="Enter your email" required className="text-xss text-seasalt lg:text-sm lg:w-xs h-7.5 lg:h-10 " />
-            <Input type="tel" name="phone" placeholder="Enter your phone number" required className="text-xss text-seasalt lg:text-sm lg:w-xs h-7.5 lg:h-10 "  />
+            <Input type="email" name="email" placeholder="Enter your email" required className="text-xss text-eerie-black lg:text-sm lg:w-xs h-7.5 lg:h-10 " />
+            <Input type="tel" name="phone" placeholder="Enter your phone number" required className="text-xss text-eerie-black lg:text-sm lg:w-xs h-7.5 lg:h-10 "  />
 
             <Button type="submit" className="bg-eerie-black text-xss w-full lg:h-9 lg:w-xs lg:text-sm">
               Sent
