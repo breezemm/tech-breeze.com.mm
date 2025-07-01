@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="text-eerie-black font-sans antialiased select-none">
         <AppHeader />
-        <main className="flex flex-col gap-5 sm:gap-10">{children}</main>
+        <main className="flex flex-col gap-y-5 sm:gap-y-10">{children}</main>
         <AppFooter />
       </body>
     </html>
