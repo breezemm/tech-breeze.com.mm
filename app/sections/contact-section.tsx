@@ -36,15 +36,29 @@ export default function ContactSection() {
   return (
     <section id="contact" className="bg-seasalt mb-5 justify-center px-19.5 py-7.5">
       <div className="mx-auto w-full max-w-sm">
-        <h1 className="text-xss mb-2 text-center">Contact us</h1>
-        <div className="text-start">
-          <h2 className="mb-1.25 text-sm font-medium md:mb-2">Let's craft together!</h2>
+        <h1 className="text-xss mb-2 text-center lg:mb-8 lg:text-xl">Contact us</h1>
+        <div className="text-start lg:mx-auto">
+          <h2 className="mb-1.25 text-sm font-medium md:mb-2 lg:mx-8 lg:text-3xl">Let&apos;s craft together!</h2>
 
-          <form onSubmit={submit} className="text-seasalt flex flex-col space-y-1.25 md:space-y-2">
-            <Input type="email" name="email" placeholder="Enter your email" required className="text-xss h-7.5" />
-            <Input type="tel" name="phone" placeholder="Enter your phone number" required className="text-xss h-7.5" />
+          <form onSubmit={submit} className="text-seasalt flex flex-col items-center space-y-1.25 md:space-y-2 lg:space-y-4">
+            <Input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              className="text-xss h-7.5 lg:h-10 lg:w-xs lg:text-sm"
+              autoComplete="email"
+              required
+            />
+            <Input
+              type="tel"
+              name="phone"
+              placeholder="Enter your phone number"
+              className="text-xss h-7.5 lg:h-10 lg:w-xs lg:text-sm"
+              autoComplete="tel"
+              required
+            />
 
-            <Button type="submit" className="bg-eerie-black text-xss w-full">
+            <Button type="submit" className="bg-eerie-black text-xss w-full lg:h-9 lg:w-xs lg:text-sm">
               Sent
             </Button>
           </form>
