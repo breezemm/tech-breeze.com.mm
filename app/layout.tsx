@@ -6,6 +6,9 @@ import '../styles/fonts.css'
 
 export const metadata: Metadata = {
   title: 'Tech Breeze',
+  icons: {
+    icon: '/breeze.svg',
+  },
   // description: '',
 }
 
