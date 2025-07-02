@@ -45,7 +45,7 @@ export default function ContactSection() {
               type="email"
               name="email"
               placeholder="Enter your email"
-              className="text-xss h-10 lg:h-10 lg:w-xs lg:text-sm text-eerie-black"
+              className="text-xss text-eerie-black h-10 lg:h-10 lg:w-xs lg:text-sm"
               autoComplete="email"
               required
             />
@@ -53,7 +53,7 @@ export default function ContactSection() {
               type="tel"
               name="phone"
               placeholder="Enter your phone number"
-              className="text-xss h-10 lg:h-10 lg:w-xs lg:text-sm text-eerie-black"
+              className="text-xss text-eerie-black h-10 lg:h-10 lg:w-xs lg:text-sm"
               autoComplete="tel"
               required
             />

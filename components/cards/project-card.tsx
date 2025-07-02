@@ -15,13 +15,19 @@ export default function ProjectCard({ title, description, leftImage, rightImage 
       <p className="mt-1.25 text-justify text-sm font-normal md:mt-2 md:text-xl lg:mt-6 lg:text-3xl">{description}</p>
 
       <div className="flex gap-x-1.5 md:gap-x-3">
-        <Image src={leftImage} width="4096" height="4096" alt="left-cover" className="mt-1.25 w-1/2 rounded-xs object-cover object-center md:mt-6" />
+        <Image
+          src={leftImage}
+          width="4096"
+          height="4096"
+          alt="left-cover"
+          className="mt-1.25 w-1/2 rounded-xs object-cover object-center md:mt-6 md:rounded-md"
+        />
         <Image
           src={rightImage}
           width="4096"
           height="4096"
           alt="right-cover"
-          className="mt-1.25 w-1/2 rounded-xs object-cover object-center md:mt-6"
+          className="mt-1.25 w-1/2 rounded-xs object-cover object-center md:mt-6 md:rounded-md"
         />
       </div>
     </div>
