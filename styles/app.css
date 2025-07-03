@@ -1,15 +1,15 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@import './fonts.css';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-neue-june: 'Neue June', sans-serif;
+  --font-sans: 'Neue June', sans-serif;
   --color-eerie-black: oklch(0.2621 0.0095 248.19);
   --color-seasalt: oklch(0.9816 0.0017 247.84);
   --shadow-custom-1: filter: drop-shadow(25px 0px 54px #cbcbcd30);
   --shadow-custom-2: filter: drop-shadow(31px 0px 31px #cbcbcd29);
+  --text-xss: 0.625rem;
 }
 
 @theme inline {
@@ -125,7 +125,26 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer utilities {
+  .stroke-1\.5 {
+    stroke-width: 1.5px;
+  }
+}
+
+input {
+  @apply focus-visible:ring-0;
+}
+
+button {
+  @apply cursor-pointer;
 }
