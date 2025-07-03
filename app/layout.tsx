@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   icons: {
     icon: '/breeze.svg',
   },
-  // description: '',
+  description: 'We craft tech that feels human. Tools for smoother work, smarter systems, better results.',
 }
 
 export default function RootLayout({
