@@ -16,8 +16,8 @@ const cardItmes = [
 export default function AboutSection() {
   return (
     <section className="flex flex-col gap-5 sm:gap-10" id="about">
-      {cardItmes.map((cards) => (
-        <AboutCard key={cards.title} title={cards.title} description={cards.description} />
+      {cardItmes.map((items) => (
+        <AboutCard key={items.title} title={items.title} description={items.description} />
       ))}
     </section>
   )

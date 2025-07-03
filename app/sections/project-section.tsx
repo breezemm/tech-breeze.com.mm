@@ -41,13 +41,13 @@ const cardItems = [
 export default function ProjectSection() {
   return (
     <div id="projects" className="flex w-full flex-col space-y-5 sm:space-y-10">
-      {cardItems.map((cards) => (
+      {cardItems.map((items) => (
         <ProjectCard
-          key={cards.title}
-          title={cards.title}
-          description={cards.description}
-          leftImage={cards.leftImage}
-          rightImage={cards.rightImage}
+          key={items.title}
+          title={items.title}
+          description={items.description}
+          leftImage={items.leftImage}
+          rightImage={items.rightImage}
         />
       ))}
     </div>
