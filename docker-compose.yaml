@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+    networks:
+      - breeze_net
+
+networks:
+  breeze_net:
+    name: breeze_net
+    driver: bridge
