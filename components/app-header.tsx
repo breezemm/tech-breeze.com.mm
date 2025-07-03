@@ -1,11 +1,11 @@
 'use client'
 
+import LinkId from '@/components/links/link-id'
+import LinkSocial from '@/components/links/link-social'
+import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { Facebook, Linkedin, Mail, Menu, X } from 'lucide-react'
-import { useState } from 'react'
-import LinkId from './links/link-id'
-import LinkSocial from './links/link-social'
-import { Button } from './ui/button'
+import { useEffect, useRef, useState } from 'react'
 
 const linkItems = [
   {
@@ -29,27 +29,48 @@ const linkItems = [
 const socialItems = [
   {
     label: 'Facebook',
-    href: '',
+    href: 'https://www.facebook.com/techbreezemm',
     icon: Facebook,
   },
   {
     label: 'LinkedIn',
-    href: '',
+    href: 'https://www.linkedin.com/company/breezemm/posts/?feedView=all',
     icon: Linkedin,
   },
   {
     label: 'Email',
-    href: '',
+    href: 'mailto:hello@tech-breeze.com.mm',
     icon: Mail,
   },
 ]
 
 export default function AppHeader() {
   const [navIsOpen, setNavIsOpen] = useState(0)
+  const [activeLink, setActiveLink] = useState<string | null>(null)
+  const recentClick = useRef(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (recentClick.current) return
+      setActiveLink(null)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleNavClick = (href: string) => {
+    setActiveLink(href)
+    recentClick.current = true
+
+    setTimeout(() => {
+      recentClick.current = false
+    }, 1000)
+  }
 
   return (
     <header className={cn('sticky top-0 flex w-full items-center justify-between bg-white px-5.5 md:px-8 lg:px-23.5', navIsOpen ? 'flex-col' : '')}>
-      <div className="flex h-21.25 w-full items-center justify-between lg:w-auto">
+      <div className="flex h-16 w-full items-center justify-between md:h-21.25 lg:w-auto">
         <h2 className={cn('text-sm font-medium transition-all md:text-xl lg:text-2xl', !navIsOpen ? 'block' : 'invisible')}>Tech Breeze</h2>
 
         <div className="block lg:hidden">
@@ -67,7 +88,13 @@ export default function AppHeader() {
 
       <div className={cn('hidden space-x-8 text-xl font-medium lg:flex', navIsOpen ? 'flex w-full flex-col space-y-2.5 p-8 text-sm' : '')}>
         {linkItems.map((items) => (
-          <LinkId key={items.label} label={items.label} href={items.href} />
+          <LinkId
+            key={items.label}
+            label={items.label}
+            href={items.href}
+            isActive={activeLink === items.href.replace('#', '')}
+            onClick={() => handleNavClick(items.href.replace('#', ''))}
+          />
         ))}
       </div>
 

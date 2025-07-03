@@ -34,7 +34,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="bg-seasalt mb-5 justify-center px-19.5 py-7.5 sm:mb-10">
+    <section id="contact" className="bg-seasalt mb-5 scroll-mt-21.25 justify-center px-19.5 py-7.5 sm:mb-10">
       <div className="mx-auto w-full max-w-sm">
         <h1 className="mb-4 text-center lg:mb-8 lg:text-xl">Contact us</h1>
         <div className="text-start lg:mx-auto">

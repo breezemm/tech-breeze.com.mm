@@ -11,7 +11,7 @@ type LinkSocialProps = {
 
 export default function LinkSocial({ label, href, icon: Icon, className }: LinkSocialProps) {
   return (
-    <Link id={label} href={href}>
+    <Link id={label} href={href} target="_blank" rel="noopener noreferrer">
       <span className="underline lg:hidden">{label}</span>
 
       <Icon className={cn('hidden lg:block', className)} />

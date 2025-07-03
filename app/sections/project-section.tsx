@@ -40,7 +40,7 @@ const cardItems = [
 
 export default function ProjectSection() {
   return (
-    <div id="projects" className="flex w-full flex-col space-y-5 sm:space-y-10">
+    <div id="projects" className="flex w-full scroll-mt-21.25 flex-col space-y-5 sm:space-y-10">
       {cardItems.map((items) => (
         <ProjectCard
           key={items.title}
