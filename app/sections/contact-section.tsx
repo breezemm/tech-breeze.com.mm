@@ -2,34 +2,43 @@
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { useState } from 'react'
 
 export default function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState('')
+
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('')
     const formData = new FormData(e.target as HTMLFormElement)
     try {
-      const response = await fetch(
-        'https://script.google.com/macros/s/AKfycbwSgna0le0bZKzEb8GxHJ-aP5igeLrSF9YSfSN4_-qHc3RHswpNVdP8RfNmUkdz_Kuh/exec',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-          }),
-          redirect: 'follow',
-          mode: 'no-cors',
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      )
+        body: JSON.stringify({
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+        }),
+      })
 
-      if (!response.ok) throw new Error('Network response was not ok')
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Network response was not ok')
+      }
 
       const result = await response.json()
       console.log('Success:', result)
+      setSubmitStatus('success')
+      setTimeout(() => setSubmitStatus(''), 10000) // Hide after 10 seconds
     } catch (error) {
       console.error('Error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -58,9 +67,11 @@ export default function ContactSection() {
               required
             />
 
-            <Button type="submit" className="bg-eerie-black text-xss mt-2 h-10 w-full lg:w-xs lg:text-sm">
-              Sent
+            <Button type="submit" className="bg-eerie-black text-xss mt-2 h-10 w-full lg:w-xs lg:text-sm" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Sent'}
             </Button>
+            {submitStatus === 'success' && <p className="text-green-500">Sent successfully!</p>}
+            {submitStatus === 'error' && <p className="text-red-500">Failed to send. Please try again.</p>}
           </form>
         </div>
       </div>
