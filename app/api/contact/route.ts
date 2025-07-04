@@ -4,21 +4,52 @@ export async function POST(request: NextRequest) {
   try {
     const { email, phone } = await request.json()
 
-    const response = await fetch('https://script.google.com/macros/s/AKfycbwSgna0le0bZKzEb8GxHJ-aP5igeLrSF9YSfSN4_-qHc3RHswpNVdP8RfNmUkdz_Kuh/exec', {
+    const webhookUrl = process.env.DISCORD_WEBHOOK_URL
+    if (!webhookUrl) {
+      return NextResponse.json({ success: false, error: 'Discord webhook URL not configured' }, { status: 500 })
+    }
+
+    const embed = {
+      title: '📬 New Contact Form Submission',
+      color: 0x5865f2,
+      thumbnail: {
+        url: 'https://cdn3.emoji.gg/emojis/4231-message.gif',
+      },
+      fields: [
+        { name: '📧 Email', value: `\`\`\`${email || 'Not provided'}\`\`\``, inline: true },
+        { name: '📱 Phone', value: `\`\`\`${phone || 'Not provided'}\`\`\``, inline: true },
+      ],
+      footer: {
+        icon_url: 'https://cdn3.emoji.gg/emojis/4231-message.gif',
+      },
+      timestamp: new Date().toISOString(),
+    }
+
+    const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, phone }),
+      body: JSON.stringify({
+        avatar_url: 'https://cdn3.emoji.gg/emojis/4231-message.gif',
+        embeds: [embed],
+      }),
     })
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
 
-    const result = await response.json()
-    return NextResponse.json({ success: true, result })
+    return NextResponse.json({ success: true })
   } catch (error) {
-    return NextResponse.json({ success: false, error: 'Failed to submit form', Errordetail: error }, { status: 500 })
+    console.error('Contact form submission error:', error)
+    return NextResponse.json(
+      {
+        success: false,
+        error: 'Failed to submit form',
+        details: error instanceof Error ? error.message : 'Unknown error',
+      },
+      { status: 500 },
+    )
   }
 }
