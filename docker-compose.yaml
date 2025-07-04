@@ -1,14 +1,18 @@
+name: 'tech-breeze'
+
 services:
   web:
+    container_name: 'tech-breeze-web'
+    image: 'tech-breeze-web'
     build: .
     ports:
       - '3000:3000'
     environment:
       - NODE_ENV=production
     networks:
-      - breeze_net
+      - breeze-net
 
 networks:
-  breeze_net:
-    name: breeze_net
+  breeze-net:
+    name: breeze-net
     driver: bridge
