@@ -20,14 +20,14 @@ export default function ProjectCard({ title, description, leftImage, rightImage 
           width="4096"
           height="4096"
           alt="left-cover"
-          className="mt-1.25 w-1/2 rounded-xs object-cover object-center md:mt-6 md:max-h-50 md:max-w-115 md:rounded-md lg:max-h-62.5 lg:max-w-121 xl:max-h-85 xl:max-w-200"
+          className="mt-1.25 h-32.5 w-1/2 rounded-xs object-cover object-center md:mt-6 md:h-auto md:max-h-50 md:max-w-115 md:rounded-md lg:max-h-62.5 lg:max-w-121 xl:max-h-85 xl:max-w-200"
         />
         <Image
           src={rightImage}
           width="4096"
           height="4096"
           alt="right-cover"
-          className="mt-1.25 w-1/2 rounded-xs object-cover object-center md:mt-6 md:max-h-50 md:max-w-115 md:rounded-md lg:max-h-62.5 lg:max-w-121 xl:max-h-85 xl:max-w-200"
+          className="mt-1.25 h-32.5 w-1/2 rounded-xs object-cover object-center md:mt-6 md:h-auto md:max-h-50 md:max-w-115 md:rounded-md lg:max-h-62.5 lg:max-w-121 xl:max-h-85 xl:max-w-200"
         />
       </div>
     </div>
