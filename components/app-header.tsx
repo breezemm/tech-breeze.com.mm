@@ -1,55 +1,113 @@
 'use client'
-import AppNavbar from '@/components/app-navbar'
-import { Facebook, Linkedin, Mail, Menu, X } from 'lucide-react'
-import { useState } from 'react'
 
-const navItems = [
-  { title: 'Home', href: '/#home' },
-  { title: 'About', href: '/#about' },
-  { title: 'Projects', href: '/#projects' },
-  { title: 'Contact', href: '/#contact' },
+import LinkId from '@/components/links/link-id'
+import LinkSocial from '@/components/links/link-social'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import { Facebook, Linkedin, Mail, Menu, X } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+
+const linkItems = [
+  {
+    label: 'Home',
+    href: '#home',
+  },
+  {
+    label: 'About',
+    href: '#about',
+  },
+  {
+    label: 'Projects',
+    href: '#projects',
+  },
+  {
+    label: 'Contact',
+    href: '#contact',
+  },
 ]
 
-const links = [
-  { icon: Facebook, href: 'https://www.facebook.com/techbreezemm', label: 'Facebook' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/company/breezemm/posts/?feedView=all', label: 'LinkedIn' },
-  { icon: Mail, href: 'https://mail.google.com/mail/?view=cm&fs=1&to=hello@tech-breeze.com.mm', label: 'Email' },
+const socialItems = [
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/techbreezemm',
+    icon: Facebook,
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/breezemm/posts/?feedView=all',
+    icon: Linkedin,
+  },
+  {
+    label: 'Email',
+    href: 'mailto:hello@tech-breeze.com.mm',
+    icon: Mail,
+  },
 ]
 
 export default function AppHeader() {
-  const [isNavOpen, setIsNavOpen] = useState(false)
+  const [navIsOpen, setNavIsOpen] = useState(0)
+  const [activeLink, setActiveLink] = useState<string | null>(null)
+  const recentClick = useRef(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (recentClick.current) return
+      setActiveLink(null)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleNavClick = (href: string) => {
+    setActiveLink(href)
+    recentClick.current = true
+
+    setTimeout(() => {
+      recentClick.current = false
+    }, 1000)
+  }
 
   return (
-    <header className="sticky top-0 flex h-21.25 w-full items-center justify-between bg-white px-5.5 md:px-8 lg:px-23.5">
-      <h2 className="text-sm font-medium transition-all md:text-xl lg:text-2xl">Tech Breeze</h2>
-      <AppNavbar className="hidden lg:flex" navItems={navItems} />
-      <div className="hidden items-center space-x-8 lg:flex">
-        {links.map((link) => (
-          <a target="_blank" rel="noopener noreferrer" className="hover:bg-seasalt text-eerie-black p-2" key={link.href} href={link.href}>
-            <link.icon className="stroke-1.5" />
-          </a>
+    <header
+      className={cn(
+        'shadow-custom-1 sticky top-0 flex w-full items-center justify-between bg-white px-5.5 md:px-8 lg:px-23.5',
+        navIsOpen ? 'fixed flex-col' : '',
+      )}
+    >
+      <div className="flex h-16 w-full items-center justify-between md:h-21.25 lg:w-auto">
+        <h2 className={cn('text-sm font-medium transition-all md:text-xl lg:text-2xl', !navIsOpen ? 'block' : 'invisible')}>Tech Breeze</h2>
+
+        <div className="block lg:hidden">
+          {navIsOpen ? (
+            <Button className="h-[auto!important] bg-transparent p-[0!important] shadow-none hover:bg-transparent" onClick={() => setNavIsOpen(0)}>
+              <X className="text-eerie-black size-5 transition-all md:size-7" />
+            </Button>
+          ) : (
+            <Button className="h-[auto!important] bg-transparent p-[0!important] shadow-none hover:bg-transparent" onClick={() => setNavIsOpen(1)}>
+              <Menu className="text-eerie-black size-5 transition-all md:size-7" />
+            </Button>
+          )}
+        </div>
+      </div>
+
+      <div className={cn('hidden space-x-8 text-xl font-medium lg:flex', navIsOpen ? 'flex w-full flex-col space-y-2.5 p-8 text-sm' : '')}>
+        {linkItems.map((items) => (
+          <LinkId
+            key={items.label}
+            label={items.label}
+            href={items.href}
+            isActive={activeLink === items.href.replace('#', '')}
+            onClick={() => handleNavClick(items.href.replace('#', ''))}
+          />
         ))}
       </div>
-      {!isNavOpen && <Menu onClick={() => setIsNavOpen(true)} className="block size-5 lg:hidden" />}
-      {isNavOpen && (
-        <>
-          <div
-            onClick={() => setIsNavOpen(false)}
-            className="bg-eerie-black/40 fixed top-0 right-0 bottom-0 left-0 z-50 h-screen w-[100vh] lg:hidden"
-          />
-          <div onClick={() => setIsNavOpen(false)} className="fixed top-0 left-0 z-50 flex w-full flex-col bg-white lg:hidden">
-            <X onClick={() => setIsNavOpen(false)} className="absolute top-0 right-0 mx-4 my-4" />
-            <AppNavbar className="flex flex-col gap-2.5 px-8 py-17 lg:hidden" navItems={navItems} />
-            <div className="mb-10 flex items-center gap-4 px-8">
-              {links.map((link) => (
-                <a target="_blank" rel="noopener noreferrer" className="underline underline-offset-4" key={link.href} href={link.href}>
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </>
-      )}
+
+      <div className={cn('hidden space-x-8 lg:flex', navIsOpen ? 'text-xss flex w-full space-x-7.5 pb-5 pl-8' : '')}>
+        {socialItems.map((items) => (
+          <LinkSocial key={items.label} label={items.label} href={items.href} icon={items.icon} className="stroke-1.5" />
+        ))}
+      </div>
     </header>
   )
 }

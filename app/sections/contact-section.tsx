@@ -2,51 +2,81 @@
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { useState } from 'react'
 
 export default function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState('')
+
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('')
     const formData = new FormData(e.target as HTMLFormElement)
     try {
-      const response = await fetch(
-        'https://script.google.com/macros/s/AKfycbwSgna0le0bZKzEb8GxHJ-aP5igeLrSF9YSfSN4_-qHc3RHswpNVdP8RfNmUkdz_Kuh/exec',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-          }),
-          redirect: 'follow',
-          mode: 'no-cors',
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      )
+        body: JSON.stringify({
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+        }),
+        cache: 'no-store',
+      })
 
-      if (!response.ok) throw new Error('Network response was not ok')
+      let result = null
+      try {
+        result = await response.json()
+      } catch {
+        // If response is not JSON, treat as error
+        throw new Error('Invalid server response')
+      }
 
-      const result = await response.json()
-      console.log('Success:', result)
+      if (!response.ok || !result || !result.success) {
+        throw new Error(result?.error || 'Failed to submit form')
+      }
+      setSubmitStatus('success')
+      setTimeout(() => setSubmitStatus(''), 10000)
     } catch (error) {
-      console.error('Error:', error)
+      console.log(error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
   return (
-    <section id="contact" className="bg-seasalt mb-5 justify-center px-19.5 py-7.5">
+    <section id="contact" className="bg-seasalt mb-5 scroll-mt-21.25 justify-center px-19.5 py-7.5 sm:mb-10">
       <div className="mx-auto w-full max-w-sm">
-        <h1 className="text-xss mb-2 text-center">Contact us</h1>
-        <div className="text-start">
-          <h2 className="mb-1.25 text-sm font-medium md:mb-2">Let's craft together!</h2>
+        <h1 className="mb-4 text-center lg:mb-8 lg:text-xl">Contact us</h1>
+        <div className="text-start lg:mx-auto">
+          <h2 className="mb-4 text-sm font-medium md:text-xl lg:mx-8 lg:text-3xl">Let&apos;s craft together!</h2>
 
-          <form onSubmit={submit} className="text-seasalt flex flex-col space-y-1.25 md:space-y-2">
-            <Input type="email" name="email" placeholder="Enter your email" required className="text-xss h-7.5" />
-            <Input type="tel" name="phone" placeholder="Enter your phone number" required className="text-xss h-7.5" />
+          <form onSubmit={submit} className="text-seasalt flex flex-col items-center space-y-1.25 md:space-y-2 lg:space-y-4">
+            <Input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              className="text-xss text-eerie-black h-10 lg:h-10 lg:w-xs lg:text-sm"
+              autoComplete="email"
+              required
+            />
+            <Input
+              type="tel"
+              name="phone"
+              placeholder="Enter your phone number"
+              className="text-xss text-eerie-black h-10 lg:h-10 lg:w-xs lg:text-sm"
+              autoComplete="tel"
+              required
+            />
 
-            <Button type="submit" className="bg-eerie-black text-xss w-full">
-              Sent
+            <Button type="submit" className="bg-eerie-black text-xss mt-2 h-10 w-full lg:w-xs lg:text-sm" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Sent'}
             </Button>
+            {submitStatus === 'success' && <p className="text-green-500">Sent successfully!</p>}
+            {submitStatus === 'error' && <p className="text-red-500">Failed to send. Please try again.</p>}
           </form>
         </div>
       </div>

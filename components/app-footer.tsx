@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const developers = [
   { name: 'Ma Aye Seint Thu (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/aye-seint-thu-seint-6b7579370/' },
   { name: 'Ko Khant Nyar Thwin (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/khant-nyar-thwin-3451a1372/' },
@@ -16,7 +18,7 @@ const breezeInfo = [
 
 export default function AppFooter() {
   return (
-    <footer className="bg-seasalt text-xss text-eerie-black flex flex-col justify-between space-y-5 px-11.25 pt-2.5 pb-13.5 transition-all sm:py-12 md:px-10 lg:flex-row lg:px-23.5">
+    <footer className="bg-seasalt text-xss text-eerie-black flex flex-col justify-between space-y-5 px-11.25 pt-6 pb-13.5 transition-all sm:py-12 sm:text-sm md:px-10 lg:flex-row lg:px-28 lg:text-base xl:text-xl">
       <div>
         <h3 className="mb-2.5 font-semibold sm:mb-6">Address</h3>
         <div>
@@ -25,22 +27,21 @@ export default function AppFooter() {
           {breezeInfo.map(({ label, href, text }) => (
             <p key={label}>
               <span>{label}: </span>
-              <a target="_blank" rel="noopener noreferrer" href={href}>
+              <Link target="_blank" rel="noopener noreferrer" href={href}>
                 {text}
-              </a>
+              </Link>
             </p>
           ))}
         </div>
       </div>
 
-      <div className="text-xss flex flex-col space-y-2.5">
+      <div className="text-xss flex flex-col space-y-2.5 sm:text-sm lg:space-y-6 lg:text-base xl:text-xl">
         <h3 className="md:text-nowrap">A big thank to our awesome Breezers for crafting website to life!</h3>
-        <div className="flex flex-col space-y-1.5">
+        <div className="flex flex-col space-y-1.5 lg:space-y-4">
           {developers.map(({ name, socialLink }) => (
-            <a target="_blank" rel="noopener noreferrer" className="underline-off-set-8 underline" href={socialLink} key={name}>
+            <Link target="_blank" rel="noopener noreferrer" key={name} href={socialLink} className="underline-off-set-8 font-medium underline">
               {name}
-              <br />
-            </a>
+            </Link>
           ))}
         </div>
       </div>
