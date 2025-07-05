@@ -41,13 +41,11 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ success: true })
-  } catch (error) {
-    console.error('Contact form submission error:', error)
+  } catch {
     return NextResponse.json(
       {
         success: false,
         error: 'Failed to submit form',
-        details: error instanceof Error ? error.message : 'Unknown error',
       },
       { status: 500 },
     )
