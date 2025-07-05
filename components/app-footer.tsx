@@ -35,7 +35,7 @@ export default function AppFooter() {
         </div>
       </div>
 
-      <div className="text-xss flex flex-col space-y-2.5 sm:text-sm lg:space-y-6 lg:text-base">
+      <div className="text-xss flex flex-col space-y-2.5 sm:text-sm lg:space-y-6 lg:text-xl">
         <h3 className="md:text-nowrap">A big thank to our awesome Breezers for crafting website to life!</h3>
         <div className="flex flex-col space-y-1.5 lg:space-y-4">
           {developers.map(({ name, socialLink }) => (
@@ -44,7 +44,7 @@ export default function AppFooter() {
               rel="noopener noreferrer"
               key={name}
               href={socialLink}
-              className="underline-off-set-8 text-xl font-medium underline"
+              className="underline-off-set-8 font-medium underline"
             >
               {name}
             </Link>
