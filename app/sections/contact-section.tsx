@@ -25,15 +25,19 @@ export default function ContactSection() {
         }),
       })
 
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || 'Network response was not ok')
+      let result = null
+      try {
+        result = await response.json()
+      } catch {
+        // If response is not JSON, treat as error
+        throw new Error('Invalid server response')
       }
 
-      const result = await response.json()
-      console.log('Success:', result)
+      if (!response.ok || !result || !result.success) {
+        throw new Error(result?.error || 'Failed to submit form')
+      }
       setSubmitStatus('success')
-      setTimeout(() => setSubmitStatus(''), 10000) // Hide after 10 seconds
+      setTimeout(() => setSubmitStatus(''), 10000)
     } catch (error) {
       console.error('Error:', error)
       setSubmitStatus('error')
