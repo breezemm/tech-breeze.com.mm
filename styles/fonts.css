@@ -3,7 +3,7 @@ font-face {
   font-family: 'Neue June';
   font-weight: 100;
   font-display: swap;
-  src: url(../public/fonts/neue-june-thin.otf) format('otf');
+  src: url(http://localhost:3000/public/fonts/neue-june-thin.otf) format('opentype');
 }
 
 /* light 300 */
@@ -11,23 +11,23 @@ font-face {
   font-family: 'Neue June';
   font-weight: 300;
   font-display: swap;
-  src: url(../public/fonts/neue-june-light.otf) format('otf');
+  src: url(http://localhost:3000/public/fonts/neue-june-light.otf) format('opentype');
 }
 
 /* regular 400 */
-font-face {
+@font-face {
   font-family: 'Neue June';
   font-weight: 400;
   font-display: swap;
-  src: url(../public/fonts/neue-june-regular.otf) format('otf');
+  src: url(../public/fonts/neue-june-regular.otf) format('opentype');
 }
 
 /* medium 500 */
-font-face {
+@font-face {
   font-family: 'Neue June';
   font-weight: 500;
   font-display: swap;
-  src: url(../public/fonts/neue-june-medium.otf) format('otf');
+  src: url(../public/fonts/neue-june-medium.otf) format('opentype');
 }
 
 /* bold 700 */
@@ -35,5 +35,5 @@ font-face {
   font-family: 'Neue June';
   font-weight: 700;
   font-display: swap;
-  src: url(../public/fonts/neue-june-bold.otf) format('otf');
+  src: url(http://localhost:3000/public/fonts/neue-june-bold.otf) format('opentype');
 }
