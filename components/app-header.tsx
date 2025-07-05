@@ -69,7 +69,12 @@ export default function AppHeader() {
   }
 
   return (
-    <header className={cn('sticky top-0 flex w-full items-center justify-between bg-white px-5.5 md:px-8 lg:px-23.5', navIsOpen ? 'flex-col' : '')}>
+    <header
+      className={cn(
+        'shadow-custom-1 sticky top-0 flex w-full items-center justify-between bg-white px-5.5 md:px-8 lg:px-23.5',
+        navIsOpen ? 'fixed flex-col' : '',
+      )}
+    >
       <div className="flex h-16 w-full items-center justify-between md:h-21.25 lg:w-auto">
         <h2 className={cn('text-sm font-medium transition-all md:text-xl lg:text-2xl', !navIsOpen ? 'block' : 'invisible')}>Tech Breeze</h2>
 

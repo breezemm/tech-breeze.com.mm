@@ -8,8 +8,8 @@
   --font-sans: 'Neue June', sans-serif;
   --color-eerie-black: oklch(0.2621 0.0095 248.19);
   --color-seasalt: oklch(0.9816 0.0017 247.84);
-  --shadow-custom-1: filter: drop-shadow(25px 0px 54px #cbcbcd30);
-  --shadow-custom-2: filter: drop-shadow(31px 0px 31px #cbcbcd29);
+  --shadow-custom-1: 25px 0px 54px #cbcbcd30;
+  --shadow-custom-2: 31px 0px 31px #cbcbcd29;
   --text-xss: 0.625rem;
 }
 
