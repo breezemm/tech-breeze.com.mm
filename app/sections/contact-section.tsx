@@ -39,7 +39,9 @@ export default function ContactSection() {
       setSubmitStatus('success')
       setTimeout(() => setSubmitStatus(''), 10000)
     } catch (error) {
-      console.error('Error:', error)
+      if(error){
+        throw new Error(error instanceof Error ? error.message : 'Unknown error')
+      }
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
