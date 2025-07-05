@@ -2,7 +2,6 @@ import AppFooter from '@/components/app-footer'
 import AppHeader from '@/components/app-header'
 import type { Metadata } from 'next'
 import '../styles/app.css'
-import '../styles/fonts.css'
 
 export const metadata: Metadata = {
   title: 'Tech Breeze',
