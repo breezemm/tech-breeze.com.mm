@@ -23,6 +23,7 @@ export default function ContactSection() {
           email: formData.get('email'),
           phone: formData.get('phone'),
         }),
+        cache: 'no-store',
       })
 
       let result = null
@@ -39,9 +40,7 @@ export default function ContactSection() {
       setSubmitStatus('success')
       setTimeout(() => setSubmitStatus(''), 10000)
     } catch (error) {
-      if (error) {
-        throw new Error(error instanceof Error ? error.message : 'Unknown error')
-      }
+      console.log(error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
