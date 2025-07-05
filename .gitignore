@@ -42,4 +42,5 @@ next-env.d.ts
 .vscode
 
 package-lock.json
-.env.local
+.env*
+!.env.example

@@ -26,18 +26,12 @@ export default function ContactSection() {
         cache: 'no-store',
       })
 
-      let result = null
-      try {
-        result = await response.json()
-      } catch {
-        // If response is not JSON, treat as error
-        throw new Error('Invalid server response')
+      if (!response.ok) {
+        throw new Error('Failed to submit form')
       }
 
-      if (!response.ok || !result || !result.success) {
-        throw new Error(result?.error || 'Failed to submit form')
-      }
       setSubmitStatus('success')
+      
       setTimeout(() => setSubmitStatus(''), 10000)
     } catch (error) {
       console.log(error)
