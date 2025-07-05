@@ -18,7 +18,7 @@ const breezeInfo = [
 
 export default function AppFooter() {
   return (
-    <footer className="bg-seasalt text-xss text-eerie-black flex flex-col justify-between space-y-5 px-11.25 pt-6 pb-13.5 transition-all sm:py-12 sm:text-sm md:px-10 lg:flex-row lg:px-23.5 lg:text-xl">
+    <footer className="bg-seasalt text-xss text-eerie-black flex flex-col justify-between space-y-5 px-11.25 pt-6 pb-13.5 transition-all sm:py-12 sm:text-sm md:px-10 lg:flex-row lg:px-28 lg:text-base xl:text-xl">
       <div>
         <h3 className="mb-2.5 font-semibold sm:mb-6">Address</h3>
         <div>
@@ -35,17 +35,11 @@ export default function AppFooter() {
         </div>
       </div>
 
-      <div className="text-xss flex flex-col space-y-2.5 sm:text-sm lg:space-y-6 lg:text-xl">
+      <div className="text-xss flex flex-col space-y-2.5 sm:text-sm lg:space-y-6 lg:text-base xl:text-xl">
         <h3 className="md:text-nowrap">A big thank to our awesome Breezers for crafting website to life!</h3>
         <div className="flex flex-col space-y-1.5 lg:space-y-4">
           {developers.map(({ name, socialLink }) => (
-            <Link
-              target="_blank"
-              rel="noopener noreferrer"
-              key={name}
-              href={socialLink}
-              className="underline-off-set-8 font-medium underline"
-            >
+            <Link target="_blank" rel="noopener noreferrer" key={name} href={socialLink} className="underline-off-set-8 font-medium underline">
               {name}
             </Link>
           ))}
