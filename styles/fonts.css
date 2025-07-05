@@ -3,7 +3,7 @@ font-face {
   font-family: 'Neue June';
   font-weight: 100;
   font-display: swap;
-  src: url(http://localhost:3000/public/fonts/neue-june-thin.otf) format('opentype');
+  src: url(../public/fonts/neue-june-thin.otf) format('opentype');
 }
 
 /* light 300 */
@@ -11,7 +11,7 @@ font-face {
   font-family: 'Neue June';
   font-weight: 300;
   font-display: swap;
-  src: url(http://localhost:3000/public/fonts/neue-june-light.otf) format('opentype');
+  src: url(../public/fonts/neue-june-light.otf) format('opentype');
 }
 
 /* regular 400 */
@@ -35,5 +35,5 @@ font-face {
   font-family: 'Neue June';
   font-weight: 700;
   font-display: swap;
-  src: url(http://localhost:3000/public/fonts/neue-june-bold.otf) format('opentype');
+  src: url(../public/fonts/neue-june-bold.otf) format('opentype');
 }

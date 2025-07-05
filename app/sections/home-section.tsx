@@ -1,9 +1,6 @@
 export default function HomeSection() {
   return (
-    <section
-      className="bg-seasalt lg:130 flex h-70.5 scroll-mt-21.25 flex-col items-center justify-center transition-all sm:h-100 xl:h-165"
-      id="home"
-    >
+    <section className="bg-seasalt lg:130 flex h-70.5 flex-col items-center justify-center transition-all sm:h-100 xl:h-192" id="home">
       <div className="text-eerie-black flex items-center space-x-2.5 text-nowrap transition-all sm:space-x-5 md:space-x-6 md:text-2xl lg:space-x-8 lg:text-[2.813rem] xl:text-5xl">
         <div>
           <h1>Crafting technology feel</h1>
