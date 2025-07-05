@@ -25,19 +25,20 @@ export default function ContactSection() {
         }),
         cache: 'no-store',
       })
-
       if (!response.ok) {
         throw new Error('Failed to submit form')
       }
-
       setSubmitStatus('success')
-      
       setTimeout(() => setSubmitStatus(''), 10000)
-    } catch (error) {
-      console.log(error)
+    } catch {
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
+      formData.forEach((value, key) => {
+        if (key === 'email' || key === 'phone') {
+          ;(e.target as HTMLFormElement)[key].value = ''
+        }
+      })
     }
   }
 
