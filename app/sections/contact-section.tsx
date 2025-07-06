@@ -7,12 +7,36 @@ import { useState } from 'react'
 export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [errors, setErrors] = useState({ email: '', phone: '' })
+
+  const validate = () => {
+    const newErrors = { email: '', phone: '' }
+    if (!email) {
+      newErrors.email = 'Email is required.'
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = 'Email is invalid.'
+    }
+    if (!phone) {
+      newErrors.phone = 'Phone number is required.'
+    }
+    setErrors(newErrors)
+    return !newErrors.email && !newErrors.phone
+  }
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/\D/g, '')
+    setPhone(value)
+  }
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!validate()) {
+      return
+    }
     setIsSubmitting(true)
     setSubmitStatus('')
-    const formData = new FormData(e.target as HTMLFormElement)
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -20,8 +44,8 @@ export default function ContactSection() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: formData.get('email'),
-          phone: formData.get('phone'),
+          email: email,
+          phone: phone,
         }),
         cache: 'no-store',
       })
@@ -29,16 +53,13 @@ export default function ContactSection() {
         throw new Error('Failed to submit form')
       }
       setSubmitStatus('success')
+      setEmail('')
+      setPhone('')
       setTimeout(() => setSubmitStatus(''), 10000)
     } catch {
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
-      formData.forEach((value, key) => {
-        if (key === 'email' || key === 'phone') {
-          ;(e.target as HTMLFormElement)[key].value = ''
-        }
-      })
     }
   }
 
@@ -56,7 +77,10 @@ export default function ContactSection() {
               placeholder="Enter your email"
               className="text-xss text-eerie-black h-10 lg:h-10 lg:w-xs lg:text-sm"
               autoComplete="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
+              aria-invalid={!!errors.email}
             />
             <Input
               type="tel"
@@ -64,8 +88,11 @@ export default function ContactSection() {
               placeholder="Enter your phone number"
               className="text-xss text-eerie-black h-10 lg:h-10 lg:w-xs lg:text-sm"
               autoComplete="tel"
+              value={phone}
+              onChange={handlePhoneChange}
               required
             />
+            {errors.phone && <p className="text-xs text-red-500">{errors.phone}</p>}
 
             <Button type="submit" className="bg-eerie-black text-xss mt-2 h-10 w-full lg:w-xs lg:text-sm" disabled={isSubmitting}>
               {isSubmitting ? 'Sending...' : 'Sent'}
