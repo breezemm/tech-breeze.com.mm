@@ -3,8 +3,8 @@ import Link from 'next/link'
 const developers = [
   { name: 'Ma Aye Seint Thu (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/aye-seint-thu-seint-6b7579370/' },
   { name: 'Ko Khant Nyar Thwin (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/khant-nyar-thwin-3451a1372/' },
-  { name: 'Ko La Pyae Hume Aung (Frontend Developer)', socialLink: 'https://www.linkedin.com/in/lapyaehmueaung/' },
-  { name: 'Ma Paing Hus Wai Kyaw (Product Manager)', socialLink: 'https://www.linkedin.com/in/paing-hsu-wai-kyaw-08041b372/' },
+  { name: 'Ko La Pyae Hmue Aung (Frontend Developer)', socialLink: 'https://www.linkedin.com/in/lapyaehmueaung/' },
+  { name: 'Ma Paing Hsu Wai Kyaw (Product Manager)', socialLink: 'https://www.linkedin.com/in/paing-hsu-wai-kyaw-08041b372/' },
   { name: 'Ko Pyae Phyo Hlaing (Full-stack Developer)', socialLink: 'https://github.com/pyaephyo11979' },
   { name: 'Ko Zawe Yan Naing (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/zawe-yan-naing-a4b1a0285/' },
   { name: 'Ko Zwe Mhan Shin (Product Designer)', socialLink: 'https://www.linkedin.com/in/zwe-thet-maung-ko-ko-199b0b29a/' },
