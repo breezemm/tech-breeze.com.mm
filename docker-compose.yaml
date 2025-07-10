@@ -2,6 +2,7 @@ name: 'tech-breeze'
 
 services:
   web:
+    restart: 'always'
     container_name: 'tech-breeze-web'
     image: 'tech-breeze-web'
     build: .
