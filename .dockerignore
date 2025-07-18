@@ -1,0 +1,7 @@
+.env*
+docker-compose*
+dockerfile
+**.md
+.prettier*
+.git
+.github

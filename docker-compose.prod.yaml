@@ -8,9 +8,9 @@ services:
   www-tech-breeze-com-mm:
     restart: 'unless-stopped'
     container_name: 'www_tech-breeze-com-mm'
-    image: 'www-tech-breeze-com-mm'
+    image: 'breeze-www/tech-breeze-com-mm'
     build: .
-    environment:
-      NODE_ENV: '${NODE_ENV}'
+    env_file:
+      - '.env'
     networks:
       - 'gate'
