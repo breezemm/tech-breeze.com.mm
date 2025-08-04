@@ -18,18 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <script
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "b93635209025499d9cf2842c53e529e5"}'
-        ></script>
-      </head>
-
       <body className="text-eerie-black font-sans antialiased select-none">
         <AppHeader />
         <main className="flex flex-col gap-y-5 sm:gap-y-10">{children}</main>
         <AppFooter />
+
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "b93635209025499d9cf2842c53e529e5"}' />
       </body>
     </html>
   )
