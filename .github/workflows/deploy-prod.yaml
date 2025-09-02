@@ -1,9 +1,9 @@
 name: production deploy
 
-on:
-  push:
-    branches:
-      - prod
+# on:
+  # push:
+    # branches:
+      # - prod
 
 jobs:
   deploy:
