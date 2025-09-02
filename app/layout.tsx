@@ -1,12 +1,12 @@
 import AppFooter from '@/components/app-footer'
 import AppHeader from '@/components/app-header'
+import '@/styles/app.css'
 import type { Metadata } from 'next'
-import '../styles/app.css'
 
 export const metadata: Metadata = {
   title: 'Tech Breeze',
   icons: {
-    icon: '/breeze.svg',
+    icon: '/brand.svg',
   },
   description: 'We craft tech that feels human. Tools for smoother work, smarter systems, better results.',
 }
