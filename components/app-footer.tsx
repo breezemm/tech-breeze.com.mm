@@ -1,18 +1,17 @@
 import Link from 'next/link'
 
 const developers = [
-  { name: 'Ma Aye Seint Thu (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/aye-seint-thu-seint-6b7579370/' },
-  { name: 'Ko Khant Nyar Thwin (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/khant-nyar-thwin-3451a1372/' },
-  { name: 'Ko La Pyae Hmue Aung (Frontend Developer)', socialLink: 'https://www.linkedin.com/in/lapyaehmueaung/' },
-  { name: 'Ma Paing Hsu Wai Kyaw (Product Manager)', socialLink: 'https://www.linkedin.com/in/paing-hsu-wai-kyaw-08041b372/' },
-  { name: 'Ko Pyae Phyo Hlaing (Full-stack Developer)', socialLink: 'https://github.com/pyaephyo11979' },
-  { name: 'Ko Zawe Yan Naing (Full-stack Developer)', socialLink: 'https://www.linkedin.com/in/zawe-yan-naing-a4b1a0285/' },
+  { name: 'Ma Aye Seint Thu (Frontend Developer: Intern)', socialLink: 'https://www.linkedin.com/in/aye-seint-thu-seint-6b7579370/' },
+  { name: 'Ko Khant Nyar Thwin (Frontend Developer: Intern)', socialLink: 'https://www.linkedin.com/in/khant-nyar-thwin-3451a1372/' },
+  { name: 'Ko La Pyae Hmue Aung (Frontend Developer: Former Intern)', socialLink: 'https://www.linkedin.com/in/lapyaehmueaung/' },
+  { name: 'Ma Paing Hsu Wai Kyaw (Product Manager: Intern)', socialLink: 'https://www.linkedin.com/in/paing-hsu-wai-kyaw-08041b372/' },
+  { name: 'Ko Pyae Phyo Hlaing (Backend Developer: Intern)', socialLink: 'https://github.com/pyaephyo11979/' },
+  { name: 'Ko Zawe Yan Naing (Frontend Developer: Intern)', socialLink: 'https://www.linkedin.com/in/zawe-yan-naing-a4b1a0285/' },
   { name: 'Ko Zwe Mhan Shin (Product Designer)', socialLink: 'https://www.linkedin.com/in/zwe-thet-maung-ko-ko-199b0b29a/' },
 ]
 
 const breezeInfo = [
   { label: 'Mail', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=hello@tech-breeze.com.mm', text: 'hello@tech-breeze.com.mm' },
-  { label: 'Website', href: 'https://www.tech-breeze.com.mm', text: 'www.tech-breeze.com.mm' },
   { label: 'Phone number', href: 'tel:+959980409620', text: '09 980 40 96 20' },
 ]
 
@@ -22,7 +21,7 @@ export default function AppFooter() {
       <div>
         <h3 className="mb-2.5 font-semibold sm:mb-6">Address</h3>
         <div>
-          <p>Tech Breeze</p>
+          <p>Tech Breeze Limited</p>
           <p>Based in Myanmar (Remote-First)</p>
           {breezeInfo.map(({ label, href, text }) => (
             <p key={label}>
